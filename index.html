@@ -26,19 +26,72 @@
         <section id="module-outfit" class="module" style="display: none;">
             <h2>Kombinasjon av Antrekk</h2>
             <p>Hvor mange ulike antrekk kan du lage? Her skal vi se på det vi kaller multiplikasjonsprinsippet.</p>
-            <div id="outfit-workspace"></div>
+            
+            <div id="outfit-workspace">
+                <div class="controls">
+                    <label>Antall hatter: <input type="number" id="hat-count" min="1" max="10" value="3"></label>
+                    <label>Antall gensere: <input type="number" id="sweater-count" min="1" max="10" value="4"></label>
+                    <label>Antall bukser: <input type="number" id="pants-count" min="1" max="10" value="2"></label>
+                </div>
+                
+                <div class="visualization" id="outfit-viz">
+                    <p><em>Juster tallene over for å se hvordan utvalget endres!</em></p>
+                </div>
+                
+                <div class="result-box">
+                    <h3>Regnestykket:</h3>
+                    <p id="outfit-equation" class="math-text">3 hatter &times; 4 gensere &times; 2 bukser = 24 mulige antrekk</p>
+                </div>
+            </div>
         </section>
 
         <section id="module-coin" class="module" style="display: none;">
             <h2>Myntkast og Utfallsrom</h2>
-            <p>Hva skjer når vi kaster en mynt flere ganger? La oss utforske uavhengige hendelser.</p>
-            <div id="coin-workspace"></div>
+            <p>Hva skjer når vi kaster en mynt flere ganger? Hvert kast er en <em>uavhengig hendelse</em> fordi mynten ikke husker hva den landet på sist!</p>
+            
+            <div id="coin-workspace">
+                <div class="controls">
+                    <label>Hvor mange ganger vil du kaste mynten? <input type="number" id="coin-count" min="1" max="8" value="3"></label>
+                </div>
+                
+                <div class="visualization" id="coin-viz">
+                    </div>
+                
+                <div class="result-box">
+                    <h3>Regnestykket:</h3>
+                    <p id="coin-equation" class="math-text">2 &times; 2 &times; 2 = 2<sup>3</sup> = 8 mulige utfall</p>
+                </div>
+            </div>
         </section>
 
         <section id="module-balls" class="module" style="display: none;">
             <h2>Kuletrekking i Pose</h2>
-            <p>Hva er sannsynligheten for å trekke en bestemt kule? Vi ser på forskjellen mellom å legge kulen tilbake, og å beholde den ute.</p>
-            <div id="balls-workspace"></div>
+            <p>Hva er sannsynligheten for å trekke bestemte kuler? Her ser vi på forskjellen mellom å legge kulen tilbake, og å beholde den ute. Legg merke til hvordan nevneren endrer seg!</p>
+            
+            <div id="balls-workspace">
+                <div class="controls">
+                    <label>Røde kuler i posen: <input type="number" id="red-balls" min="1" max="10" value="3"></label>
+                    <label>Blå kuler i posen: <input type="number" id="blue-balls" min="1" max="10" value="2"></label>
+                    <br>
+                    <label>Trekkemetode: 
+                        <select id="draw-method">
+                            <option value="with">Med tilbakelegging</option>
+                            <option value="without">Uten tilbakelegging</option>
+                        </select>
+                    </label>
+                    <button id="draw-btn" class="action-btn">Beregn og vis trekk!</button>
+                </div>
+                
+                <div class="visualization" id="balls-viz">
+                    <div id="urn-container">
+                        </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>Sannsynlighetsregning (trekke 2 røde kuler på rad):</h3>
+                    <p id="balls-equation" class="math-text">Trykk på knappen for å se utregningen!</p>
+                </div>
+            </div>
         </section>
     </main>
 
