@@ -1,4 +1,4 @@
-/* Version: #2 */
+/* Version: #5 */
 :root {
     --primary-color: #4CAF50; /* Grønn for hovedtema/hjem */
     --outfit-color: #2196F3;  /* Blå for antrekk */
@@ -103,7 +103,7 @@ main {
     color: #555;
 }
 
-/* Arbeidsområder for interaktivitet - plassholdere inntil videre */
+/* Arbeidsområder for interaktivitet */
 #outfit-workspace,
 #coin-workspace,
 #balls-workspace {
@@ -114,7 +114,133 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Endret fra center for å gi plass til elementer ovenfra og ned */
     background-color: #fafafa;
+    gap: 1.5rem; /* Nytt: Avstand mellom elementene inni boksen */
 }
-/* Version: #2 */
+
+/* === NYE STILER FRA VERSJON #5 === */
+
+/* Kontroller (Inndatafelt) */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 100%;
+}
+
+.controls label {
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.controls input[type="number"],
+.controls select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    width: 70px; /* God størrelse for tall */
+    text-align: center;
+    font-weight: bold;
+}
+
+.controls select {
+    width: auto; /* Lar dropdown bli bredere */
+    cursor: pointer;
+}
+
+/* Spesifikk knapp for kuletrekking */
+.action-btn {
+    background-color: var(--balls-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #c2185b; /* Mørkere rosa ved hover */
+}
+
+/* Visualiseringsområder */
+.visualization {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    gap: 10px;
+}
+
+/* Resultatboks (Regnestykket) */
+.result-box {
+    background-color: #e8f5e9; /* Svak grønn for å indikere et resultat/fasit */
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem;
+    width: 100%;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.02);
+}
+
+.result-box h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #2e7d32; /* Mørk grønn */
+}
+
+/* Selve matte-teksten */
+.math-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #111;
+}
+
+/* Spesialstyling for Posen i Kuletrekking */
+#urn-container {
+    width: 180px;
+    min-height: 200px;
+    border: 4px solid #8d6e63; /* Brun farge for "pose" */
+    border-radius: 10px 10px 60px 60px; /* Formet som en pose */
+    background-color: #d7ccc8;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end; /* Kulene legger seg i bunnen */
+    justify-content: center;
+    gap: 8px;
+    padding: 15px;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+}
+
+/* CSS-klasser for kulene som JavaScript skal lage senere */
+.ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.3), 2px 2px 4px rgba(0,0,0,0.2);
+}
+.ball.red { background-color: #f44336; }
+.ball.blue { background-color: #2196f3; }
+/* Version: #5 */
