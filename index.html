@@ -51,27 +51,28 @@
             
             <div id="coin-workspace">
                 <div class="controls">
-                    <label>Hvor mange ganger vil du kaste mynten? <input type="number" id="coin-count" min="1" max="8" value="3"></label>
+                    <label>Antall mynter å kaste: <input type="number" id="coin-count" min="1" max="8" value="3"></label>
+                    <button id="flip-btn" class="action-btn" style="background-color: var(--coin-color);">Kast myntene!</button>
                 </div>
                 
                 <div class="visualization" id="coin-viz">
                     </div>
                 
                 <div class="result-box">
-                    <h3>Regnestykket:</h3>
-                    <p id="coin-equation" class="math-text">2 &times; 2 &times; 2 = 2<sup>3</sup> = 8 mulige utfall</p>
+                    <h3>Utfallsrom for dette kastet:</h3>
+                    <p id="coin-equation" class="math-text">Trykk på "Kast myntene!" for å se resultatet.</p>
                 </div>
             </div>
         </section>
 
         <section id="module-balls" class="module" style="display: none;">
             <h2>Kuletrekking i Pose</h2>
-            <p>Hva er sannsynligheten for å trekke bestemte kuler? Her ser vi på forskjellen mellom å legge kulen tilbake, og å beholde den ute. Legg merke til hvordan nevneren endrer seg!</p>
+            <p>Hva er sannsynligheten for å trekke to bestemte kuler etter hverandre? Følg med på hvordan nevneren endrer seg når vi ikke legger kulen tilbake!</p>
             
             <div id="balls-workspace">
                 <div class="controls">
-                    <label>Røde kuler i posen: <input type="number" id="red-balls" min="1" max="10" value="3"></label>
-                    <label>Blå kuler i posen: <input type="number" id="blue-balls" min="1" max="10" value="2"></label>
+                    <label>Røde kuler: <input type="number" id="red-balls" min="1" max="10" value="3"></label>
+                    <label>Blå kuler: <input type="number" id="blue-balls" min="1" max="10" value="2"></label>
                     <br>
                     <label>Trekkemetode: 
                         <select id="draw-method">
@@ -79,17 +80,20 @@
                             <option value="without">Uten tilbakelegging</option>
                         </select>
                     </label>
-                    <button id="draw-btn" class="action-btn">Beregn og vis trekk!</button>
+                    <button id="draw-btn" class="action-btn">Trekk 2 kuler!</button>
                 </div>
                 
-                <div class="visualization" id="balls-viz">
+                <div class="visualization" id="balls-viz" style="flex-direction: column; gap: 20px;">
                     <div id="urn-container">
                         </div>
+                    <div id="drawn-balls-display" style="min-height: 60px; display: flex; gap: 15px; align-items: center; padding: 10px; border: 2px dashed #ccc; border-radius: 8px; width: 100%; justify-content: center;">
+                        <span style="color: #777; font-weight: bold;">Trukne kuler vil vises her...</span>
+                    </div>
                 </div>
                 
                 <div class="result-box">
-                    <h3>Sannsynlighetsregning (trekke 2 røde kuler på rad):</h3>
-                    <p id="balls-equation" class="math-text">Trykk på knappen for å se utregningen!</p>
+                    <h3>Sannsynlighetsregning (hendelsen som nettopp skjedde):</h3>
+                    <p id="balls-equation" class="math-text">Klar for å trekke!</p>
                 </div>
             </div>
         </section>
