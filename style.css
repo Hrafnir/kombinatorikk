@@ -1,0 +1,120 @@
+/* Version: #2 */
+:root {
+    --primary-color: #4CAF50; /* Grønn for hovedtema/hjem */
+    --outfit-color: #2196F3;  /* Blå for antrekk */
+    --coin-color: #FF9800;    /* Oransje for myntkast */
+    --balls-color: #E91E63;   /* Rosa for kuletrekking */
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --card-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.4s ease; /* For å kunne bytte farge basert på modul senere */
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+#main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-btn.active {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Fargespesifikke tekster for aktive knapper */
+.nav-btn[data-target="module-outfit"].active { color: var(--outfit-color); }
+.nav-btn[data-target="module-coin"].active { color: var(--coin-color); }
+.nav-btn[data-target="module-balls"].active { color: var(--balls-color); }
+
+main {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.module {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+
+.module h2 {
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #eee;
+    padding-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+/* Fargespesifikke overskrifter */
+#module-outfit h2 { border-color: var(--outfit-color); color: var(--outfit-color); }
+#module-coin h2 { border-color: var(--coin-color); color: var(--coin-color); }
+#module-balls h2 { border-color: var(--balls-color); color: var(--balls-color); }
+
+.module p {
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    color: #555;
+}
+
+/* Arbeidsområder for interaktivitet - plassholdere inntil videre */
+#outfit-workspace,
+#coin-workspace,
+#balls-workspace {
+    min-height: 350px;
+    border: 3px dashed #ddd;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+}
+/* Version: #2 */
