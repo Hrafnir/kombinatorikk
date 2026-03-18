@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kombinatorikk for 9. trinn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Utforsk Kombinatorikk!</h1>
+        <nav id="main-nav">
+            <button class="nav-btn active" data-target="module-home">Hjem</button>
+            <button class="nav-btn" data-target="module-outfit">Antrekk</button>
+            <button class="nav-btn" data-target="module-coin">Myntkast</button>
+            <button class="nav-btn" data-target="module-balls">Kuletrekking</button>
+        </nav>
+    </header>
+
+    <main id="app-container">
+        <section id="module-home" class="module">
+            <h2>Velkommen til Kombinatorikk!</h2>
+            <p>Her skal vi utforske hvordan vi kan finne ut hvor mange mulige utfall vi har i ulike spennende situasjoner. Velg et tema i menyen for å starte læringen.</p>
+        </section>
+
+        <section id="module-outfit" class="module" style="display: none;">
+            <h2>Kombinasjon av Antrekk</h2>
+            <p>Hvor mange ulike antrekk kan du lage? Her skal vi se på det vi kaller multiplikasjonsprinsippet.</p>
+            <div id="outfit-workspace"></div>
+        </section>
+
+        <section id="module-coin" class="module" style="display: none;">
+            <h2>Myntkast og Utfallsrom</h2>
+            <p>Hva skjer når vi kaster en mynt flere ganger? La oss utforske uavhengige hendelser.</p>
+            <div id="coin-workspace"></div>
+        </section>
+
+        <section id="module-balls" class="module" style="display: none;">
+            <h2>Kuletrekking i Pose</h2>
+            <p>Hva er sannsynligheten for å trekke en bestemt kule? Vi ser på forskjellen mellom å legge kulen tilbake, og å beholde den ute.</p>
+            <div id="balls-workspace"></div>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
