@@ -1,4 +1,4 @@
-/* Version: #5 */
+/* Version: #8 */
 :root {
     --primary-color: #4CAF50; /* Grønn for hovedtema/hjem */
     --outfit-color: #2196F3;  /* Blå for antrekk */
@@ -114,12 +114,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Endret fra center for å gi plass til elementer ovenfra og ned */
+    justify-content: flex-start;
     background-color: #fafafa;
-    gap: 1.5rem; /* Nytt: Avstand mellom elementene inni boksen */
+    gap: 1.5rem;
 }
-
-/* === NYE STILER FRA VERSJON #5 === */
 
 /* Kontroller (Inndatafelt) */
 .controls {
@@ -149,17 +147,17 @@ main {
     font-size: 1rem;
     border: 2px solid #ccc;
     border-radius: 6px;
-    width: 70px; /* God størrelse for tall */
+    width: 70px;
     text-align: center;
     font-weight: bold;
 }
 
 .controls select {
-    width: auto; /* Lar dropdown bli bredere */
+    width: auto;
     cursor: pointer;
 }
 
-/* Spesifikk knapp for kuletrekking */
+/* Spesifikk knapp for handlinger */
 .action-btn {
     background-color: var(--balls-color);
     color: white;
@@ -169,11 +167,15 @@ main {
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 .action-btn:hover {
-    background-color: #c2185b; /* Mørkere rosa ved hover */
+    filter: brightness(0.9);
+}
+
+.action-btn:active {
+    transform: scale(0.95);
 }
 
 /* Visualiseringsområder */
@@ -194,7 +196,7 @@ main {
 
 /* Resultatboks (Regnestykket) */
 .result-box {
-    background-color: #e8f5e9; /* Svak grønn for å indikere et resultat/fasit */
+    background-color: #e8f5e9;
     border-left: 5px solid var(--primary-color);
     padding: 1.5rem;
     width: 100%;
@@ -206,7 +208,7 @@ main {
 .result-box h3 {
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
-    color: #2e7d32; /* Mørk grønn */
+    color: #2e7d32;
 }
 
 /* Selve matte-teksten */
@@ -222,19 +224,19 @@ main {
 #urn-container {
     width: 180px;
     min-height: 200px;
-    border: 4px solid #8d6e63; /* Brun farge for "pose" */
-    border-radius: 10px 10px 60px 60px; /* Formet som en pose */
+    border: 4px solid #8d6e63;
+    border-radius: 10px 10px 60px 60px;
     background-color: #d7ccc8;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-end; /* Kulene legger seg i bunnen */
+    align-content: flex-end;
     justify-content: center;
     gap: 8px;
     padding: 15px;
     box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
 }
 
-/* CSS-klasser for kulene som JavaScript skal lage senere */
+/* CSS-klasser for kulene */
 .ball {
     width: 30px;
     height: 30px;
@@ -243,4 +245,45 @@ main {
 }
 .ball.red { background-color: #f44336; }
 .ball.blue { background-color: #2196f3; }
-/* Version: #5 */
+
+/* === NYE STILER FOR ANIMASJONER (VERSJON #8) === */
+
+/* Animasjon for myntkast */
+.coin-wrapper {
+    display: inline-block;
+    perspective: 1000px;
+    margin: 0 10px;
+}
+
+.coin-inner {
+    font-size: 3.5rem;
+    display: inline-block;
+    transition: transform 0.1s;
+}
+
+.coin-anim {
+    animation: flip 0.6s ease-out forwards;
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0) scale(1) translateY(0); }
+    50% { transform: rotateY(360deg) scale(1.5) translateY(-30px); }
+    100% { transform: rotateY(720deg) scale(1) translateY(0); }
+}
+
+/* Animasjon for uttrukkede kuler */
+.drawn-ball {
+    animation: dropIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes dropIn {
+    0% { 
+        transform: translateY(-80px) scale(0.5); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateY(0) scale(1); 
+        opacity: 1; 
+    }
+}
+/* Version: #8 */
